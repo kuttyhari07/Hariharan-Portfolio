@@ -7,7 +7,7 @@ import { EASE, Magnetic, SectionHeading } from './fx';
 export default function ResumeSection({ onView }: { onView: () => void }) {
   return (
     <>
-      <SectionHeading kicker="The screenplay" title="The Full Story" />
+      <SectionHeading kicker="Curriculum Vitae" title="The Full Story" />
       <div className="gutter grid gap-10 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-14">
         <motion.div
           initial={{ opacity: 0, y: 60, rotateX: 10 }}
@@ -20,9 +20,9 @@ export default function ResumeSection({ onView }: { onView: () => void }) {
         </motion.div>
 
         <div className="lg:sticky lg:top-28 lg:self-start">
-          <p className="font-serif text-3xl italic leading-tight text-bone">Every episode, on one page.</p>
+          <p className="font-serif text-3xl italic leading-tight text-bone">Every milestone on one page.</p>
           <p className="mt-3 text-sm leading-relaxed text-mist">
-            Education, training, projects, achievements and {certifications.length} certifications — view it here or take a copy with you.
+            Academic timeline, engineering projects, core technical stack, and verified certifications — review the formatted CV or download the document.
           </p>
           <div className="mt-6 flex flex-col gap-3">
             <Magnetic className="w-full">
@@ -30,31 +30,36 @@ export default function ResumeSection({ onView }: { onView: () => void }) {
                 type="button"
                 data-cursor="view"
                 onClick={onView}
-                className="flex min-h-12 w-full items-center justify-center gap-2 rounded-md bg-bone px-6 text-[15px] font-bold text-ink transition hover:bg-white"
+                className="flex min-h-12 w-full items-center justify-center gap-2 rounded-md bg-[#00d2ff] px-6 text-[15px] font-bold text-ink shadow-[0_0_30px_rgba(0,210,255,0.35)] transition hover:bg-white"
               >
-                ▶ View Resume
+                ▶ View Resume Overlay
               </button>
             </Magnetic>
             <Magnetic className="w-full">
               <a
                 href={profile.resumePdf}
-                download="Sushmita_Dasari_Resume.pdf"
+                download="Hariharan_G_Resume.pdf"
                 data-cursor="link"
-                className="glass flex min-h-12 w-full items-center justify-center gap-2 rounded-md px-6 text-[15px] font-semibold text-bone transition hover:bg-white/15"
+                className="glass flex min-h-12 w-full items-center justify-center gap-2 rounded-md px-6 text-[15px] font-semibold text-bone transition hover:bg-white/15 border border-[#00d2ff]/30"
               >
-                ⤓ Download Resume
+                ⤓ Download Resume PDF
               </a>
             </Magnetic>
           </div>
-          <dl className="mt-8 grid grid-cols-3 gap-px overflow-hidden rounded-xl bg-white/10 text-center">
+
+          <div className="mt-6 rounded-xl border border-white/10 bg-white/[0.03] p-4 text-xs leading-relaxed text-mist">
+            <span className="font-semibold text-bone">Resume PDF Note:</span> Place your updated PDF at <code className="text-[#00d2ff]">public/assets/Hariharan_G_Resume.pdf</code>. The viewer renders the interactive digital sheet seamlessly in all environments.
+          </div>
+
+          <dl className="mt-6 grid grid-cols-3 gap-px overflow-hidden rounded-xl bg-white/10 text-center">
             {[
-              { v: education[0].score.replace('CGPA ', ''), k: 'CGPA' },
+              { v: '2028', k: 'Batch' },
               { v: String(projects.length), k: 'Originals' },
-              { v: String(certifications.length), k: 'Certs' },
+              { v: String(certifications.length), k: 'Awards' },
             ].map((s) => (
               <div key={s.k} className="bg-ink-2 px-2 py-4">
                 <dd className="font-display text-3xl leading-none text-bone">{s.v}</dd>
-                <dt className="mt-1 text-[10px] font-bold uppercase tracking-[0.2em] text-smoke">{s.k}</dt>
+                <dt className="mt-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[#38bdf8]">{s.k}</dt>
               </div>
             ))}
           </dl>
@@ -64,7 +69,7 @@ export default function ResumeSection({ onView }: { onView: () => void }) {
   );
 }
 
-/** On phones the sheet starts as a teaser so the page keeps its pace; desktop shows it in full. */
+/** On mobile phones the sheet starts collapsed with an expand button */
 function CollapsibleSheet() {
   const [open, setOpen] = useState(false);
   return (
@@ -74,8 +79,8 @@ function CollapsibleSheet() {
       </div>
       {!open && (
         <div className="absolute inset-x-0 bottom-0 flex h-48 items-end justify-center rounded-b-2xl bg-gradient-to-t from-ink via-ink/85 to-transparent pb-4 md:hidden">
-          <button type="button" onClick={() => setOpen(true)} className="glass min-h-11 rounded-full px-5 text-sm font-semibold text-bone">
-            Read the full story ↓
+          <button type="button" onClick={() => setOpen(true)} className="glass min-h-11 rounded-full px-5 text-sm font-semibold text-bone border border-[#00d2ff]/40">
+            Read the full resume ↓
           </button>
         </div>
       )}
@@ -84,20 +89,21 @@ function CollapsibleSheet() {
 }
 
 function H({ children }: { children: string }) {
-  return <h4 className="mb-3 mt-7 border-b border-white/10 pb-1.5 text-[10px] font-bold uppercase tracking-[0.3em] text-crimson-2 first:mt-0">{children}</h4>;
+  return <h4 className="mb-3 mt-7 border-b border-white/10 pb-1.5 text-[10px] font-bold uppercase tracking-[0.3em] text-[#00d2ff] first:mt-0">{children}</h4>;
 }
 
 export function ResumeSheet() {
   return (
-    <article className="relative overflow-hidden rounded-2xl bg-[linear-gradient(180deg,#121218,#0c0c11)] p-6 ring-1 ring-white/10 sm:p-10">
-      <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-crimson-2/70 to-transparent" />
+    <article className="relative overflow-hidden rounded-2xl bg-[linear-gradient(180deg,#0a1224,#060b17)] p-6 ring-1 ring-white/10 sm:p-10 shadow-2xl">
+      <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#00d2ff]/70 to-transparent" />
       <header className="mb-8 flex flex-wrap items-end justify-between gap-4 border-b border-white/10 pb-6">
         <div>
-          <p className="text-[10px] font-bold tracking-[0.34em] text-smoke">STARRING</p>
-          <h3 className="mt-1 font-display text-[clamp(1.9rem,4.4vw,3.2rem)] leading-[0.9] tracking-wide text-bone">{profile.fullName}</h3>
+          <p className="text-[10px] font-bold tracking-[0.34em] text-[#00d2ff]">FULL STACK DEVELOPER</p>
+          <h3 className="mt-1 font-display text-[clamp(2.2rem,4.4vw,3.4rem)] leading-[0.9] tracking-wide text-bone">{profile.fullName}</h3>
+          <p className="text-xs text-mist mt-1">{profile.degree} · {profile.college}</p>
         </div>
         <div className="text-xs leading-relaxed text-mist sm:text-right">
-          <a href={`mailto:${profile.email}`} className="block hover:text-bone">
+          <a href={`mailto:${profile.email}`} className="block hover:text-bone text-[#00d2ff]">
             {profile.email}
           </a>
           <a href={profile.links.linkedin} target="_blank" rel="noreferrer" className="hover:text-bone">
@@ -106,6 +112,10 @@ export function ResumeSheet() {
           {' · '}
           <a href={profile.links.github} target="_blank" rel="noreferrer" className="hover:text-bone">
             GitHub ↗
+          </a>
+          {' · '}
+          <a href={profile.links.studio} target="_blank" rel="noreferrer" className="hover:text-bone">
+            gmhktechstudio.in ↗
           </a>
         </div>
       </header>
@@ -119,27 +129,27 @@ export function ResumeSheet() {
                 <p className="text-sm font-semibold text-bone">
                   {e.school}, {e.place}
                 </p>
-                <p className="text-xs text-smoke">{e.period}</p>
+                <p className="text-xs text-[#38bdf8] font-mono">{e.period}</p>
               </div>
               <p className="text-xs text-mist">
-                {e.degree} · <span className="text-bone/80">{e.score}</span>
+                {e.degree} · <span className="text-bone/90">{e.score}</span>
               </p>
             </div>
           ))}
 
-          <H>Work Experience</H>
+          <H>Experience & Ventures</H>
           {experience.map((x) => (
             <div key={x.company}>
               <div className="flex flex-wrap justify-between gap-x-3">
                 <p className="text-sm font-semibold text-bone">
                   {x.company} — {x.role}
                 </p>
-                <p className="text-xs text-smoke">{x.period}</p>
+                <p className="text-xs text-[#38bdf8] font-mono">{x.period}</p>
               </div>
               <ul className="mt-2 space-y-1.5">
                 {x.points.map((p) => (
                   <li key={p} className="flex gap-2 text-xs leading-relaxed text-mist">
-                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-crimson-2" />
+                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-[#00d2ff]" />
                     {p}
                   </li>
                 ))}
@@ -147,21 +157,22 @@ export function ResumeSheet() {
             </div>
           ))}
 
-          <H>Projects</H>
+          <H>Featured Projects</H>
           {projects.map((p) => (
-            <div key={p.id} className="mb-3">
+            <div key={p.id} className="mb-3.5">
               <div className="flex flex-wrap justify-between gap-x-3">
                 <p className="text-sm font-semibold text-bone">{p.title}</p>
-                <p className="text-xs text-smoke">{p.year}</p>
+                <p className="text-xs text-smoke font-mono">{p.year}</p>
               </div>
-              <p className="text-xs text-mist">{p.stack.join(', ')}</p>
+              <p className="text-xs text-mist leading-relaxed">{p.logline}</p>
+              <p className="text-[11px] text-[#00d2ff]/80 font-mono mt-0.5">{p.stack.join(' · ')}</p>
             </div>
           ))}
         </div>
 
         <div>
-          <H>Skills</H>
-          <div className="space-y-2">
+          <H>Technical Skills</H>
+          <div className="space-y-2.5">
             {skillCategories.map((c) => (
               <p key={c.id} className="text-xs leading-relaxed text-mist">
                 <span className="font-semibold text-bone">{c.title}: </span>
@@ -170,8 +181,8 @@ export function ResumeSheet() {
             ))}
           </div>
 
-          <H>Achievements</H>
-          <ul className="space-y-2">
+          <H>Achievements & Honors</H>
+          <ul className="space-y-3">
             {achievements.map((a) => (
               <li key={a.id} className="text-xs leading-relaxed text-mist">
                 <span className="font-semibold text-bone">
@@ -183,10 +194,18 @@ export function ResumeSheet() {
           </ul>
 
           <H>Certifications</H>
+          <ul className="space-y-2">
+            {certifications.map((c) => (
+              <li key={c.name} className="text-xs leading-relaxed text-mist">
+                <span className="font-semibold text-bone">{c.issuer}: </span>
+                {c.name} ({c.scoreOrDetail})
+              </li>
+            ))}
+          </ul>
+
+          <H>Career Focus</H>
           <p className="text-xs leading-relaxed text-mist">
-            {Array.from(new Set(certifications.map((c) => c.issuer)))
-              .map((iss) => `${iss}: ${certifications.filter((c) => c.issuer === iss).map((c) => c.name).join(', ')}`)
-              .join(' · ')}
+            Full Stack Developer | Software Engineer · Web Application Architecture · Distributed Systems · Problem Solving.
           </p>
         </div>
       </div>

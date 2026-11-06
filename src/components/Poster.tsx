@@ -22,7 +22,7 @@ export function PosterBackdrop({ palette, children, className = '' }: { palette:
       />
       <div aria-hidden className="absolute inset-0 opacity-[0.18] [background-image:repeating-linear-gradient(0deg,rgba(255,255,255,0.06)_0px,rgba(255,255,255,0.06)_1px,transparent_1px,transparent_4px)]" />
       {children}
-      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/10 to-transparent" />
+      <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/15 to-transparent" />
     </div>
   );
 }
@@ -40,16 +40,20 @@ export function ProjectArt({ project, className = '' }: { project: Project; clas
           </radialGradient>
         </defs>
         <circle cx="290" cy="120" r="130" fill={`url(#g-${project.id})`} />
+
+        {/* Shield / Exam motif for EvalTech */}
         {project.motif === 'shield' && (
-          <g transform="translate(232 40)" fill="none" stroke={a} strokeOpacity="0.85">
+          <g transform="translate(230 40)" fill="none" stroke={a} strokeOpacity="0.85">
             <path d="M58 0 L116 22 V78 C116 120 90 146 58 160 C26 146 0 120 0 78 V22 Z" strokeWidth="2" />
             <path d="M58 16 L102 33 V78 C102 111 82 132 58 144 C34 132 14 111 14 78 V33 Z" strokeWidth="1" strokeOpacity="0.4" />
-            {[0, 1, 2, 3, 4].map((i) => (
-              <line key={i} x1="30" x2={i % 2 ? 72 : 86} y1={56 + i * 14} y2={56 + i * 14} strokeWidth="3" strokeLinecap="round" strokeOpacity={0.35 + i * 0.1} />
+            {[0, 1, 2, 3].map((i) => (
+              <line key={i} x1="30" x2={i % 2 ? 72 : 86} y1={56 + i * 16} y2={56 + i * 16} strokeWidth="3" strokeLinecap="round" strokeOpacity={0.4 + i * 0.1} />
             ))}
-            <path d="M40 124 l12 12 l26 -28" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
+            <path d="M40 126 l12 12 l26 -28" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" />
           </g>
         )}
+
+        {/* Flow / Agency network motif for GMHK Tech Studio & ParkEase */}
         {project.motif === 'flow' && (
           <g fill="none" stroke={a}>
             <rect x="200" y="56" width="150" height="94" rx="12" strokeWidth="2" strokeOpacity="0.85" />
@@ -65,6 +69,41 @@ export function ProjectArt({ project, className = '' }: { project: Project; clas
             </g>
           </g>
         )}
+
+        {/* E-Commerce Shopping Cart Motif for FashionStore */}
+        {project.motif === 'cart' && (
+          <g transform="translate(210 50)" fill="none" stroke={a}>
+            {/* Shopping bag / cart */}
+            <rect x="20" y="50" width="100" height="90" rx="12" strokeWidth="2.5" strokeOpacity="0.85" />
+            <path d="M44 50 V34 C44 20 54 12 70 12 C86 12 96 20 96 34 V50" strokeWidth="2.5" strokeLinecap="round" />
+            {/* Tag & price check */}
+            <circle cx="70" cy="85" r="14" strokeWidth="2" strokeOpacity="0.6" />
+            <path d="M64 85 h12 M70 79 v12" strokeWidth="2" strokeLinecap="round" />
+            {/* UPI wave pulses */}
+            <path d="M10 160 Q 70 140 130 160" strokeWidth="2" strokeDasharray="8 6" strokeOpacity="0.7" />
+            <path d="M25 175 Q 70 160 115 175" strokeWidth="1.5" strokeDasharray="6 4" strokeOpacity="0.4" />
+          </g>
+        )}
+
+        {/* College Events Portal Motif */}
+        {project.motif === 'portal' && (
+          <g transform="translate(215 50)" fill="none" stroke={a}>
+            {/* Calendar / Ticket */}
+            <rect x="20" y="24" width="110" height="110" rx="14" strokeWidth="2.5" strokeOpacity="0.85" />
+            <line x1="20" x2="130" y1="56" y2="56" strokeWidth="2" strokeOpacity="0.7" />
+            <line x1="50" x2="50" y1="12" y2="32" strokeWidth="3" strokeLinecap="round" />
+            <line x1="100" x2="100" y1="12" y2="32" strokeWidth="3" strokeLinecap="round" />
+            {/* Date dots */}
+            <circle cx="45" cy="80" r="4" fill={a} />
+            <circle cx="75" cy="80" r="4" fill={a} />
+            <circle cx="105" cy="80" r="4" fill={a} />
+            <circle cx="45" cy="108" r="4" fill={a} />
+            <circle cx="75" cy="108" r="4" fill={a} />
+            <circle cx="105" cy="108" r="4" fill={a} opacity="0.3" />
+          </g>
+        )}
+
+        {/* Collaborative Knowledge Hub Motif */}
         {project.motif === 'tenants' && (
           <g fill="none" stroke={a}>
             {[0, 1, 2].map((r) =>
@@ -93,14 +132,21 @@ export function ProjectArt({ project, className = '' }: { project: Project; clas
   );
 }
 
-/** Small fictional platform mark used in the nav and on cards. */
+/** Fictional platform mark used in the nav and on cards — modern 'H' monogram for Hariharan */
 export function SeriesMark({ className = '' }: { className?: string }) {
   return (
     <span className={`inline-flex items-center gap-1.5 ${className}`}>
-      <svg viewBox="0 0 24 32" className="h-[1.1em] w-auto" aria-hidden>
-        <path d="M18 6c-1.8-1.8-4-2.6-6.5-2.6C7.6 3.4 5 5.6 5 9c0 7.6 14 4.6 14 11.6 0 3-2.8 5-6.4 5-3 0-5.4-1.2-7.2-3" fill="none" stroke="#e5132b" strokeWidth="4" strokeLinecap="round" />
+      <svg viewBox="0 0 24 32" className="h-[1.15em] w-auto drop-shadow-[0_0_8px_rgba(0,210,255,0.6)]" aria-hidden>
+        <path
+          d="M5 6v20M19 6v20M5 16h14"
+          fill="none"
+          stroke="#00d2ff"
+          strokeWidth="3.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
       </svg>
-      <span className="font-sans text-[0.62em] font-bold tracking-[0.36em] text-mist">SERIES</span>
+      <span className="font-sans text-[0.62em] font-bold tracking-[0.36em] text-mist">ORIGINALS</span>
     </span>
   );
 }

@@ -6,7 +6,7 @@ import { useMedia } from '../hooks/useMedia';
 import { EASE } from './fx';
 import { ResumeSheet } from './ResumeViewer';
 
-/** Full-screen PDF viewer. On phones (where inline PDFs are unreliable) it offers open/download instead. */
+/** Full-screen resume viewer. On mobile/touch devices or whenever preferred, renders the interactive designed sheet. */
 export default function ResumeModal({ onClose }: { onClose: () => void }) {
   useScrollLock(true);
   const small = useMedia('(max-width: 767px)');
@@ -28,12 +28,22 @@ export default function ResumeModal({ onClose }: { onClose: () => void }) {
       aria-label="Resume"
     >
       <div className="gutter flex h-16 shrink-0 items-center justify-between gap-3 pt-[env(safe-area-inset-top)]">
-        <p className="truncate font-display text-2xl tracking-wide text-bone">The Full Story</p>
+        <p className="truncate font-display text-2xl tracking-wide text-bone">The Full Story · Resume</p>
         <div className="flex items-center gap-2">
-          <a href={profile.resumePdf} download="Sushmita_Dasari_Resume.pdf" className="rounded-md bg-bone px-4 py-2 text-xs font-bold text-ink">
-            ⤓ Download
+          <a
+            href={profile.resumePdf}
+            download="Hariharan_G_Resume.pdf"
+            className="rounded-md bg-[#00d2ff] px-4 py-2 text-xs font-bold text-ink shadow-[0_0_20px_rgba(0,210,255,0.4)] transition hover:bg-white"
+          >
+            ⤓ Download PDF
           </a>
-          <button type="button" onClick={onClose} aria-label="Close resume" data-cursor="close" className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-bone hover:bg-white/20">
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close resume"
+            data-cursor="close"
+            className="flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-bone hover:bg-white/20"
+          >
             ✕
           </button>
         </div>
@@ -47,12 +57,19 @@ export default function ResumeModal({ onClose }: { onClose: () => void }) {
         {small ? (
           <div data-lenis-prevent className="h-full overflow-y-auto">
             <ResumeSheet />
-            <a href={profile.resumePdf} target="_blank" rel="noreferrer" className="glass mt-4 flex min-h-12 items-center justify-center rounded-md text-sm font-semibold text-bone">
-              Open original PDF ↗
+            <a
+              href={profile.resumePdf}
+              target="_blank"
+              rel="noreferrer"
+              className="glass mt-4 flex min-h-12 items-center justify-center rounded-md text-sm font-semibold text-bone border border-[#00d2ff]/30"
+            >
+              Open original PDF file ↗
             </a>
           </div>
         ) : (
-          <iframe title="Sushmita Dasari resume (PDF)" src={`${profile.resumePdf}#view=FitH`} className="h-full w-full rounded-xl bg-white" />
+          <div data-lenis-prevent className="h-full overflow-y-auto">
+            <ResumeSheet />
+          </div>
         )}
       </motion.div>
     </motion.div>

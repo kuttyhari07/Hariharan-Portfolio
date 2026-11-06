@@ -61,7 +61,7 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
     >
       <div
         className={`gutter flex h-16 items-center justify-between gap-6 transition-[background,backdrop-filter] duration-500 md:h-[72px] ${
-          solid || mobileNav ? 'bg-ink/80 backdrop-blur-xl' : 'bg-gradient-to-b from-black/80 to-transparent'
+          solid || mobileNav ? 'bg-ink/85 backdrop-blur-xl border-b border-white/5' : 'bg-gradient-to-b from-black/85 to-transparent'
         }`}
       >
         <div className="flex items-center gap-8 lg:gap-10">
@@ -80,9 +80,9 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
           <button
             type="button"
             onClick={() => go('contact')}
-            className="hidden rounded-full border border-white/15 px-4 py-1.5 text-xs font-semibold tracking-[0.14em] text-bone transition hover:border-crimson-2 hover:text-crimson-2 sm:block"
+            className="hidden rounded-full border border-white/15 px-4 py-1.5 text-xs font-semibold tracking-[0.14em] text-bone transition hover:border-[#00d2ff] hover:text-[#00d2ff] sm:block"
           >
-            LET&apos;S BUILD
+            LET&apos;S CONNECT
           </button>
           <div className="relative" ref={menuRef}>
             <button
@@ -91,7 +91,7 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
               aria-haspopup="menu"
               aria-expanded={menu}
               aria-label={`Viewing as ${current.name}. Switch profile`}
-              className="flex items-center gap-2 rounded-md p-1"
+              className="flex items-center gap-2 rounded-lg p-1 hover:bg-white/5 transition"
             >
               <ProfileAvatar id={profileId} size="sm" />
               <motion.span animate={{ rotate: menu ? 180 : 0 }} className="text-[10px] text-mist">
@@ -106,9 +106,11 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: -8, scale: 0.97 }}
                   transition={{ duration: 0.25, ease: EASE }}
-                  className="absolute right-0 top-12 w-60 origin-top-right rounded-xl border border-white/10 bg-ink-2/95 p-2 shadow-2xl backdrop-blur-xl"
+                  className="absolute right-0 top-12 w-64 origin-top-right rounded-xl border border-white/10 bg-ink-2/95 p-2 shadow-2xl backdrop-blur-xl"
                 >
-                  <p className="px-3 pb-2 pt-1 text-[10px] font-semibold tracking-[0.24em] text-smoke">WHO&apos;S WATCHING?</p>
+                  <p className="px-3 pb-2 pt-1 font-mono text-[10px] font-semibold tracking-[0.24em] text-[#00d2ff]">
+                    SWITCH PERSPECTIVE
+                  </p>
                   {viewerProfiles.map((p) => (
                     <button
                       key={p.id}
@@ -118,11 +120,11 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
                         onSwitch(p.id);
                         setMenu(false);
                       }}
-                      className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left transition hover:bg-white/5 ${p.id === profileId ? 'bg-white/[0.06]' : ''}`}
+                      className={`flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left transition hover:bg-white/5 ${p.id === profileId ? 'bg-white/[0.08] ring-1 ring-white/15' : ''}`}
                     >
                       <ProfileAvatar id={p.id} size="sm" />
                       <span>
-                        <span className="block text-sm text-bone">{p.name}</span>
+                        <span className="block text-sm font-semibold text-bone">{p.name}</span>
                         <span className="block text-[11px] text-smoke">{p.blurb}</span>
                       </span>
                     </button>
@@ -154,7 +156,7 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
             exit={{ clipPath: 'inset(0 0 100% 0)' }}
             transition={{ duration: 0.45, ease: EASE }}
           >
-            {[{ id: 'top', label: 'Home' }, ...order.map((id) => ({ id, label: sectionMeta[id].nav })), { id: 'contact', label: "Let's Build" }].map((l, i) => (
+            {[{ id: 'top', label: 'Home' }, ...order.map((id) => ({ id, label: sectionMeta[id].nav })), { id: 'contact', label: "Let's Connect" }].map((l, i) => (
               <motion.button
                 key={l.id}
                 type="button"
@@ -162,7 +164,7 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
                 initial={{ opacity: 0, x: -12 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.05 * i }}
-                className={`block w-full py-3 text-left font-display text-3xl tracking-wide ${active === l.id ? 'text-crimson-2' : 'text-bone'}`}
+                className={`block w-full py-3 text-left font-display text-3xl tracking-wide ${active === l.id ? 'text-[#00d2ff]' : 'text-bone'}`}
               >
                 {l.label}
               </motion.button>
@@ -176,9 +178,9 @@ export default function Navbar({ order, profileId, onSwitch }: { order: SectionI
 
 function NavLink({ label, active, onClick }: { label: string; active: boolean; onClick: () => void }) {
   return (
-    <button type="button" onClick={onClick} className={`relative text-[13px] font-medium transition ${active ? 'text-bone' : 'text-mist hover:text-bone'}`}>
+    <button type="button" onClick={onClick} className={`relative text-[13px] font-medium transition ${active ? 'text-bone font-semibold' : 'text-mist hover:text-bone'}`}>
       {label}
-      {active && <motion.span layoutId="nav-underline" className="absolute -bottom-1.5 left-0 right-0 h-[2px] rounded bg-crimson" />}
+      {active && <motion.span layoutId="nav-underline" className="absolute -bottom-1.5 left-0 right-0 h-[2px] rounded bg-[#00d2ff]" />}
     </button>
   );
 }

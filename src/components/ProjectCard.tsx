@@ -25,7 +25,7 @@ export default function ProjectCard({ project, index, onOpen }: { project: Proje
             }
           }}
           aria-label={`Open ${project.title}`}
-          className="focus-ring relative aspect-[4/5] overflow-hidden rounded-2xl ring-1 ring-white/10 transition duration-500 group-hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.8)] group-hover:ring-white/25 sm:aspect-[16/12] lg:aspect-auto lg:h-[66vh]"
+          className="focus-ring relative aspect-[4/5] overflow-hidden rounded-2xl ring-1 ring-white/10 transition duration-500 group-hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.9),0_0_0_1px_rgba(0,210,255,0.4)] sm:aspect-[16/12] lg:aspect-auto lg:h-[66vh]"
         >
           <motion.div layoutId={`art-${project.id}`} className="absolute inset-0 overflow-hidden rounded-2xl">
             <div className="absolute inset-0 transition-transform duration-[1.4s] ease-[var(--ease-cine)] group-hover:scale-[1.07]">
@@ -34,26 +34,42 @@ export default function ProjectCard({ project, index, onOpen }: { project: Proje
           </motion.div>
 
           <div className="absolute left-5 top-5 flex items-center gap-2 sm:left-7 sm:top-7">
-            <span className="font-display text-xl leading-none text-crimson-2">S</span>
-            <span className="text-[10px] font-bold tracking-[0.34em] text-bone/80">ORIGINAL</span>
+            <span className="font-display text-xl leading-none text-[#00d2ff]">H</span>
+            <span className="text-[10px] font-bold tracking-[0.34em] text-bone/90">ORIGINAL</span>
           </div>
-          <span className="absolute right-5 top-5 rounded border border-white/30 px-1.5 py-px text-[10px] font-bold text-bone sm:right-7 sm:top-7">{project.year}</span>
+          <span className="absolute right-5 top-5 rounded border border-white/30 bg-black/40 px-2 py-0.5 text-[10px] font-bold text-bone backdrop-blur sm:right-7 sm:top-7">
+            {project.year}
+          </span>
 
           <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 [transform:translateZ(40px)]">
-            <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-mist">{project.genre}</p>
-            <motion.h3 layoutId={`title-${project.id}`} className="font-display text-[clamp(2.4rem,5vw,4.6rem)] leading-[0.88] tracking-wide text-bone">
+            <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#38bdf8]">{project.genre}</p>
+            <motion.h3 layoutId={`title-${project.id}`} className="font-display text-[clamp(2.4rem,5vw,4.4rem)] leading-[0.88] tracking-wide text-bone">
               {project.title}
             </motion.h3>
-            <p className="mt-3 max-w-md text-sm leading-relaxed text-bone/75 sm:text-[15px]">{project.logline}</p>
+            <p className="mt-3 max-w-md text-sm leading-relaxed text-bone/80 sm:text-[15px]">{project.logline}</p>
             <div className="mt-4 flex flex-wrap gap-1.5">
               {project.stack.map((t) => (
-                <span key={t} className="rounded-full bg-black/35 px-2.5 py-1 text-[11px] font-medium text-bone/90 backdrop-blur">
+                <span key={t} className="rounded-full bg-black/50 border border-white/10 px-2.5 py-1 text-[11px] font-medium text-bone/90 backdrop-blur">
                   {t}
                 </span>
               ))}
             </div>
-            <div className="mt-5 flex flex-wrap items-center gap-3">
-              <span className="flex min-h-11 items-center gap-2 rounded-md bg-bone px-5 text-sm font-bold text-ink transition group-hover:bg-white">▶ View Project</span>
+            <div className="mt-5 flex flex-wrap items-center gap-2.5">
+              <span className="flex min-h-11 items-center gap-2 rounded-md bg-bone px-5 text-sm font-bold text-ink transition group-hover:bg-white shadow-[0_0_20px_rgba(0,210,255,0.25)]">
+                ▶ View Details
+              </span>
+              {project.demo && project.demo !== '#' && (
+                <a
+                  href={project.demo}
+                  target="_blank"
+                  rel="noreferrer"
+                  data-cursor="link"
+                  onClick={(e) => e.stopPropagation()}
+                  className="flex min-h-11 items-center gap-1.5 rounded-md border border-[#00d2ff]/40 bg-[#00d2ff]/10 px-4 text-xs font-semibold text-[#00d2ff] backdrop-blur transition hover:bg-[#00d2ff]/20"
+                >
+                  Live Demo ↗
+                </a>
+              )}
               {project.github && (
                 <a
                   href={project.github}
@@ -61,7 +77,7 @@ export default function ProjectCard({ project, index, onOpen }: { project: Proje
                   rel="noreferrer"
                   data-cursor="link"
                   onClick={(e) => e.stopPropagation()}
-                  className="flex min-h-11 items-center gap-2 rounded-md border border-white/25 bg-black/30 px-4 text-sm font-semibold text-bone backdrop-blur transition hover:border-bone"
+                  className="flex min-h-11 items-center gap-1.5 rounded-md border border-white/25 bg-black/40 px-3.5 text-xs font-semibold text-bone backdrop-blur transition hover:border-[#00d2ff] hover:text-[#00d2ff]"
                 >
                   GitHub ↗
                 </a>

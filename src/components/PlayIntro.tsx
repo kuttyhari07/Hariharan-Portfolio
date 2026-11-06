@@ -8,8 +8,8 @@ import { EASE } from './fx';
 const SLIDE_MS = 3600;
 
 /**
- * "▶ Play Intro": darken → zoom into the portrait → a full-screen highlight reel
- * built only from resume facts → fade back to the portfolio.
+ * "▶ Play Intro": zoom into the portrait → a full-screen highlight reel
+ * built from Hariharan's verified background and projects → fade back to the portfolio.
  */
 export default function PlayIntro({ onClose }: { onClose: () => void }) {
   useScrollLock(true);
@@ -40,7 +40,7 @@ export default function PlayIntro({ onClose }: { onClose: () => void }) {
     progress.set(0);
   }, [progress]);
 
-  // one clock drives both the active progress bar and auto-advance, so pause is exact
+  // one clock drives both the active progress bar and auto-advance
   useEffect(() => {
     if (phase !== 'reel' || paused) return;
     let raf = 0;
@@ -92,7 +92,7 @@ export default function PlayIntro({ onClose }: { onClose: () => void }) {
       aria-modal="true"
       aria-label="Intro highlight reel"
     >
-      {/* Zoom into the portrait */}
+      {/* Zoom into portrait */}
       <motion.div
         className="absolute inset-0 flex items-end justify-center"
         initial={{ scale: 1, opacity: 1 }}
@@ -108,7 +108,7 @@ export default function PlayIntro({ onClose }: { onClose: () => void }) {
           className="h-[88vh] w-auto max-w-none object-contain [mask-image:linear-gradient(to_bottom,black_60%,transparent)]"
         />
       </motion.div>
-      <div aria-hidden className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_45%,rgba(120,10,25,0.35),transparent_70%)]" />
+      <div aria-hidden className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_45%,rgba(0,102,255,0.25),transparent_70%)]" />
 
       {/* progress bars */}
       {phase !== 'zoom' && (
@@ -116,7 +116,7 @@ export default function PlayIntro({ onClose }: { onClose: () => void }) {
           {introSlides.map((s, i) => (
             <div key={s.kicker} className="h-[3px] flex-1 overflow-hidden rounded bg-white/15">
               <motion.div
-                className="h-full origin-left bg-bone"
+                className="h-full origin-left bg-[#00d2ff]"
                 style={{ scaleX: i === index && phase === 'reel' ? progress : i < index || phase === 'end' ? 1 : 0 }}
               />
             </div>
@@ -136,17 +136,17 @@ export default function PlayIntro({ onClose }: { onClose: () => void }) {
               exit={{ opacity: 0, scale: 0.96, filter: 'blur(10px)' }}
               transition={{ duration: 0.7, ease: EASE }}
             >
-              <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.5em] text-crimson-2 sm:text-xs">
+              <p className="mb-4 text-[11px] font-bold uppercase tracking-[0.5em] text-[#00d2ff] sm:text-xs">
                 Episode {String(index + 1).padStart(2, '0')} · {slide.kicker}
               </p>
-              <h2 className="font-display leading-[0.88] text-bone" style={{ fontSize: 'clamp(3rem, 10vw, 8.5rem)' }}>
+              <h2 className="font-display leading-[0.88] text-bone" style={{ fontSize: 'clamp(2.8rem, 9vw, 7.5rem)' }}>
                 {slide.title}
               </h2>
               <div className="mt-6 space-y-2">
                 {slide.lines.map((l, i) => (
                   <motion.p
                     key={l}
-                    className="text-base text-bone/80 sm:text-xl"
+                    className="text-base text-bone/85 sm:text-xl"
                     initial={{ opacity: 0, y: 12 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.35 + i * 0.15, duration: 0.6, ease: EASE }}
@@ -160,7 +160,7 @@ export default function PlayIntro({ onClose }: { onClose: () => void }) {
                   {slide.chips.map((c, i) => (
                     <motion.span
                       key={c}
-                      className="glass rounded-full px-3 py-1 text-xs font-semibold tracking-wide text-bone"
+                      className="glass rounded-full px-3 py-1 text-xs font-semibold tracking-wide text-bone border border-[#00d2ff]/30"
                       initial={{ opacity: 0, scale: 0.8 }}
                       animate={{ opacity: 1, scale: 1 }}
                       transition={{ delay: 0.6 + i * 0.06 }}
@@ -175,7 +175,7 @@ export default function PlayIntro({ onClose }: { onClose: () => void }) {
           {phase === 'end' && (
             <motion.div key="end" initial={{ opacity: 0, letterSpacing: '0.6em' }} animate={{ opacity: 1, letterSpacing: '0.2em' }} transition={{ duration: 1.2, ease: EASE }}>
               <p className="font-display text-5xl text-bone sm:text-7xl">NOW STREAMING</p>
-              <p className="mt-3 text-xs font-semibold tracking-[0.4em] text-mist">{profile.displayName.toUpperCase()}</p>
+              <p className="mt-3 text-xs font-semibold tracking-[0.4em] text-[#00d2ff]">{profile.displayName.toUpperCase()}</p>
             </motion.div>
           )}
         </AnimatePresence>

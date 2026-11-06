@@ -6,7 +6,7 @@ import EpisodeCard from './EpisodeCard';
 import { RailButtons } from './Rail';
 
 export default function Seasons() {
-  const [active, setActive] = useState(seasons.length - 2);
+  const [active, setActive] = useState(0);
   const season = seasons[active];
   const rail = useRef<HTMLDivElement>(null);
 
@@ -15,7 +15,7 @@ export default function Seasons() {
       <SectionHeading
         kicker={`${seasons.length} Seasons`}
         title="My Journey"
-        aside={<p className="max-w-xs text-sm text-mist">Every stage of the resume, told as a season — select one to see its episodes.</p>}
+        aside={<p className="max-w-xs text-sm text-mist">Every stage of Hariharan&apos;s academic journey (2024–2028), projects, and milestones — told as a series.</p>}
       />
 
       {/* season selector */}
@@ -30,9 +30,15 @@ export default function Seasons() {
               setActive(i);
               rail.current?.scrollTo({ left: 0, behavior: 'smooth' });
             }}
-            className={`relative shrink-0 rounded-full px-4 py-2.5 text-left transition ${i === active ? 'text-ink' : 'text-mist hover:text-bone'}`}
+            className={`relative shrink-0 rounded-full px-4 py-2.5 text-left transition ${i === active ? 'text-ink font-bold' : 'text-mist hover:text-bone'}`}
           >
-            {i === active && <motion.span layoutId="season-pill" className="absolute inset-0 rounded-full bg-bone" transition={{ duration: 0.5, ease: EASE }} />}
+            {i === active && (
+              <motion.span
+                layoutId="season-pill"
+                className="absolute inset-0 rounded-full bg-[#00d2ff] shadow-[0_0_25px_rgba(0,210,255,0.45)]"
+                transition={{ duration: 0.5, ease: EASE }}
+              />
+            )}
             <span className="relative block text-[10px] font-bold tracking-[0.24em]">SEASON {String(s.number).padStart(2, '0')}</span>
             <span className="relative block whitespace-nowrap text-sm font-semibold">{s.title}</span>
           </button>
@@ -52,7 +58,7 @@ export default function Seasons() {
               <span className="text-outline mr-3">S{String(season.number).padStart(2, '0')}</span>
               {season.title}
             </h3>
-            <span className="text-sm text-mist">
+            <span className="text-sm text-[#00d2ff] font-mono">
               {season.period} · {season.episodes.length} {season.episodes.length === 1 ? 'Episode' : 'Episodes'}
             </span>
           </div>

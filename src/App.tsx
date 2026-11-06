@@ -26,7 +26,7 @@ const ResumeModal = lazy(() => import('./components/ResumeModal'));
 
 type Stage = 'opening' | 'profiles' | 'home';
 
-const STORAGE_KEY = 'sushmita-series-profile';
+const STORAGE_KEY = 'hariharan-series-profile';
 
 function readStoredProfile(): ProfileId | null {
   try {
@@ -48,7 +48,7 @@ export default function App() {
 function Series() {
   const stored = readStoredProfile();
   const [stage, setStage] = useState<Stage>(stored ? 'home' : 'opening');
-  const [profileId, setProfileId] = useState<ProfileId>(stored ?? 'sushmita');
+  const [profileId, setProfileId] = useState<ProfileId>(stored ?? 'explorer');
   const [playing, setPlaying] = useState(false);
   const [project, setProject] = useState<Project | null>(null);
   const [resumeOpen, setResumeOpen] = useState(false);
@@ -139,7 +139,7 @@ function Series() {
         {toast && (
           <motion.div
             role="status"
-            className="glass fixed bottom-6 left-1/2 z-[150] w-[min(92vw,420px)] -translate-x-1/2 rounded-xl px-5 py-3 text-center text-sm text-bone"
+            className="glass fixed bottom-6 left-1/2 z-[150] w-[min(92vw,420px)] -translate-x-1/2 rounded-xl px-5 py-3 text-center text-sm text-bone shadow-[0_10px_40px_rgba(0,210,255,0.2)]"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 30 }}

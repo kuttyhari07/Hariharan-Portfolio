@@ -1,17 +1,21 @@
 @import 'tailwindcss';
 
 @theme {
-  --color-ink: #07070a;
-  --color-ink-2: #0e0e13;
-  --color-ink-3: #16161d;
-  --color-crimson: #e5132b;
-  --color-crimson-2: #ff3d5a;
+  --color-ink: #050811;
+  --color-ink-2: #0b1120;
+  --color-ink-3: #131d35;
+  --color-crimson: #00d2ff;
+  --color-crimson-2: #38bdf8;
+  --color-electric: #00d2ff;
+  --color-cyan: #00f0ff;
+  --color-neon-blue: #0284c7;
   --color-bone: #f4f1ec;
-  --color-mist: #a7a6ad;
-  --color-smoke: #6d6c75;
+  --color-mist: #94a3b8;
+  --color-smoke: #64748b;
   --font-display: 'Bebas Neue', 'Oswald', Impact, sans-serif;
   --font-serif: 'Instrument Serif', Georgia, serif;
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
   --ease-cine: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -49,8 +53,8 @@ body {
 }
 
 ::selection {
-  background: var(--color-crimson);
-  color: white;
+  background: #00d2ff;
+  color: #050811;
 }
 
 .gutter {
@@ -64,7 +68,7 @@ body {
   inset: -50%;
   pointer-events: none;
   z-index: 90;
-  opacity: 0.055;
+  opacity: 0.045;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   animation: grain 1.2s steps(6) infinite;
 }
@@ -101,10 +105,18 @@ body {
 }
 
 .glass {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.7), rgba(8, 14, 26, 0.5));
+  border: 1px solid rgba(56, 189, 248, 0.16);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+}
+
+.glass-glow {
+  background: linear-gradient(180deg, rgba(14, 165, 233, 0.12), rgba(8, 14, 26, 0.6));
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 0 35px -8px rgba(0, 210, 255, 0.3);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
 }
 
 .focus-ring:focus-visible,
@@ -118,7 +130,7 @@ a:focus-visible {
 .light-streak {
   position: absolute;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 90, 110, 0.9), transparent);
+  background: linear-gradient(90deg, transparent, rgba(0, 210, 255, 0.85), transparent);
   filter: blur(0.4px);
   animation: streak 7s var(--ease-cine) infinite;
   opacity: 0;
@@ -134,7 +146,7 @@ a:focus-visible {
   to { background-position: 200% center; }
 }
 .shimmer-text {
-  background: linear-gradient(90deg, #f4f1ec 0%, #f4f1ec 40%, #ff8a9a 50%, #f4f1ec 60%, #f4f1ec 100%);
+  background: linear-gradient(90deg, #f4f1ec 0%, #f4f1ec 35%, #00d2ff 50%, #f4f1ec 65%, #f4f1ec 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -147,8 +159,5 @@ a:focus-visible {
   .light-streak,
   .shimmer-text {
     animation: none !important;
-  }
-  .light-streak {
-    display: none;
   }
 }

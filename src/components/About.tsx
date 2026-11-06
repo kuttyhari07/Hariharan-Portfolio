@@ -4,10 +4,10 @@ import { EASE, SectionHeading, Tilt } from './fx';
 
 export default function About() {
   const facts = [
-    { k: 'Now', v: 'B.Tech, AI & ML', s: `${education[0].school} · ${education[0].score}` },
-    { k: 'Training', v: `${experience[0].role}, ${experience[0].company}`, s: experience[0].period },
-    { k: 'Primary language', v: 'Java', s: 'with Python, C, C++' },
-    { k: 'Based in', v: profile.location, s: 'India' },
+    { k: 'Academic Program', v: 'B.Tech Information Technology', s: `${education[0].school} · 2024–2028` },
+    { k: 'Web Studio', v: `${experience[0].role}`, s: 'GMHK Tech Studio (gmhktechstudio.in)' },
+    { k: 'Career Objective', v: profile.careerGoal, s: 'Scalable Systems & Web Engineering' },
+    { k: 'Location', v: profile.location, s: 'Tamil Nadu, India' },
   ];
 
   return (
@@ -21,41 +21,43 @@ export default function About() {
           viewport={{ once: true, margin: '-10% 0px' }}
           transition={{ duration: 1.2, ease: EASE }}
         >
-        <Tilt max={5} className="rounded-2xl">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-2xl ring-1 ring-white/10">
-            <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_30%,#5a0b1b,#14060a_60%,#07070a)]" />
-            <div className="absolute inset-0 opacity-50 [background-image:repeating-linear-gradient(90deg,rgba(255,255,255,0.03)_0px,rgba(255,255,255,0.03)_1px,transparent_1px,transparent_28px)]" />
-            <img
-              src="/assets/portrait-720.webp"
-              srcSet={profile.portrait.srcSet}
-              sizes="(max-width: 1024px) 90vw, 40vw"
-              alt={profile.portrait.alt}
-              loading="lazy"
-              className="absolute bottom-0 left-1/2 h-[92%] w-auto max-w-none -translate-x-1/2 object-contain object-bottom"
-            />
-            <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/90 to-transparent" />
-            <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
-              <div>
-                <p className="text-[10px] font-bold tracking-[0.3em] text-crimson-2">STARRING</p>
-                <p className="font-display text-3xl leading-none text-bone">{profile.displayName}</p>
+          <Tilt max={5} className="rounded-2xl">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl ring-1 ring-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.8)]">
+              <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_50%_30%,#004499,#061426_60%,#050811)]" />
+              <div className="absolute inset-0 opacity-40 [background-image:repeating-linear-gradient(90deg,rgba(0,210,255,0.06)_0px,rgba(0,210,255,0.06)_1px,transparent_1px,transparent_28px)]" />
+              <img
+                src="/assets/portrait-720.webp"
+                srcSet={profile.portrait.srcSet}
+                sizes="(max-width: 1024px) 90vw, 40vw"
+                alt={profile.portrait.alt}
+                loading="lazy"
+                className="absolute bottom-0 left-1/2 h-[92%] w-auto max-w-none -translate-x-1/2 object-contain object-bottom drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
+              />
+              <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/90 to-transparent" />
+              <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between">
+                <div>
+                  <p className="text-[10px] font-bold tracking-[0.3em] text-[#00d2ff]">DEVELOPER</p>
+                  <p className="font-display text-3xl leading-none text-bone">{profile.displayName}</p>
+                </div>
+                <span className="rounded border border-[#00d2ff]/40 bg-[#00d2ff]/10 px-2 py-0.5 text-[10px] font-bold text-[#00d2ff]">
+                  S01–S05
+                </span>
               </div>
-              <span className="rounded border border-white/30 px-1.5 text-[10px] font-bold text-bone">S01–S05</span>
             </div>
-          </div>
-        </Tilt>
+          </Tilt>
         </motion.div>
 
         <div>
           <motion.p
-            className="font-serif text-[clamp(1.6rem,3.2vw,2.6rem)] italic leading-[1.15] text-bone"
+            className="font-serif text-[clamp(1.5rem,3vw,2.4rem)] italic leading-[1.2] text-bone"
             initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
             whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: EASE }}
           >
-            “{profile.intro}”
+            &ldquo;I am an Information Technology student passionate about full-stack development, problem-solving, software engineering, and building real-world applications.&rdquo;
           </motion.p>
-          <p className="mt-4 text-sm text-mist">— {profile.fullName}</p>
+          <p className="mt-4 text-sm font-semibold text-[#00d2ff]">— {profile.fullName}</p>
 
           <motion.dl
             className="mt-10 grid gap-px overflow-hidden rounded-xl bg-white/10 sm:grid-cols-2"
@@ -67,10 +69,10 @@ export default function About() {
             {facts.map((f) => (
               <motion.div
                 key={f.k}
-                className="bg-ink-2 p-5"
+                className="bg-ink-2 p-5 border border-white/[0.04]"
                 variants={{ hidden: { opacity: 0, y: 16 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } } }}
               >
-                <dt className="text-[10px] font-bold uppercase tracking-[0.28em] text-smoke">{f.k}</dt>
+                <dt className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#38bdf8]">{f.k}</dt>
                 <dd className="mt-2 text-base font-semibold text-bone">{f.v}</dd>
                 <dd className="mt-0.5 text-xs text-mist">{f.s}</dd>
               </motion.div>
@@ -78,10 +80,10 @@ export default function About() {
           </motion.dl>
 
           <div className="mt-8">
-            <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.28em] text-smoke">Interests</p>
+            <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.28em] text-smoke">Core Focus Areas</p>
             <div className="flex flex-wrap gap-2">
               {profile.interests.map((i) => (
-                <span key={i} className="glass rounded-full px-3 py-1.5 text-xs font-medium text-bone">
+                <span key={i} className="glass rounded-full px-3 py-1.5 text-xs font-medium text-bone border border-[#00d2ff]/20">
                   {i}
                 </span>
               ))}

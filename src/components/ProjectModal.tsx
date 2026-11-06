@@ -35,7 +35,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
   return (
     <motion.div className="fixed inset-0 z-[140]" role="dialog" aria-modal="true" aria-labelledby={`title-${project.id}-modal`}>
       <motion.div
-        className="absolute inset-0 bg-black/80 backdrop-blur-md"
+        className="absolute inset-0 bg-black/85 backdrop-blur-md"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -43,7 +43,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
       />
       <div ref={scroller} data-lenis-prevent className="absolute inset-0 overflow-y-auto overscroll-contain" onClick={onClose}>
         <motion.div
-          className="relative mx-auto min-h-full max-w-5xl bg-ink-2 shadow-2xl sm:my-10 sm:min-h-0 sm:rounded-2xl"
+          className="relative mx-auto min-h-full max-w-5xl bg-ink-2 shadow-2xl sm:my-10 sm:min-h-0 sm:rounded-2xl border border-white/10"
           onClick={(e) => e.stopPropagation()}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -61,18 +61,18 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
               onClick={onClose}
               data-cursor="close"
               aria-label="Close project"
-              className="absolute right-4 top-[max(1rem,env(safe-area-inset-top))] z-10 flex h-11 w-11 items-center justify-center rounded-full bg-black/60 text-lg text-bone backdrop-blur transition hover:bg-black"
+              className="absolute right-4 top-[max(1rem,env(safe-area-inset-top))] z-10 flex h-11 w-11 items-center justify-center rounded-full bg-black/60 text-lg text-bone backdrop-blur border border-white/20 transition hover:bg-black hover:border-white/40"
             >
               ✕
             </button>
             <div className="absolute inset-x-0 bottom-0 px-5 pb-6 sm:px-10">
-              <motion.p className="mb-2 flex items-center gap-2 text-[11px] font-bold tracking-[0.34em] text-bone/80" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
-                <span className="font-display text-xl tracking-normal text-crimson-2">S</span> ORIGINAL
+              <motion.p className="mb-2 flex items-center gap-2 text-[11px] font-bold tracking-[0.34em] text-bone/90" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
+                <span className="font-display text-xl tracking-normal text-[#00d2ff]">H</span> ORIGINAL
               </motion.p>
               <motion.h2
                 id={`title-${project.id}-modal`}
                 layoutId={`title-${project.id}`}
-                className="font-display text-[clamp(2.8rem,8vw,6rem)] leading-[0.86] tracking-wide text-bone"
+                className="font-display text-[clamp(2.8rem,8vw,5.5rem)] leading-[0.86] tracking-wide text-bone"
                 transition={{ duration: 0.7, ease: EASE }}
               >
                 {project.title}
@@ -82,7 +82,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
 
           <motion.div className="px-5 pb-12 sm:px-10" initial="hidden" animate="show" transition={{ staggerChildren: 0.08, delayChildren: 0.25 }}>
             <motion.div variants={block} className="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-mist">
-              <span className="font-semibold text-[#46e3a8]">{project.year}</span>
+              <span className="font-semibold text-[#00d2ff]">{project.year}</span>
               <span className="h-1 w-1 rounded-full bg-smoke" />
               <span>{project.genre}</span>
             </motion.div>
@@ -91,8 +91,26 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
               {project.logline}
             </motion.p>
 
-            {project.github && (
-              <motion.div variants={block} className="mt-6 flex flex-wrap gap-3">
+            <motion.div variants={block} className="mt-6 flex flex-wrap gap-3">
+              {project.demo && project.demo !== '#' ? (
+                <Magnetic>
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noreferrer"
+                    data-cursor="link"
+                    className="flex min-h-12 items-center gap-2 rounded-md bg-[#00d2ff] px-6 text-[15px] font-bold text-ink shadow-[0_0_30px_rgba(0,210,255,0.4)] transition hover:bg-white"
+                  >
+                    <span>▶</span> Visit Live Demo ↗
+                  </a>
+                </Magnetic>
+              ) : (
+                <span className="flex min-h-12 items-center gap-2 rounded-md border border-white/20 bg-white/5 px-4 text-xs font-medium text-mist">
+                  <span>ℹ</span> Live Demo: Local / Deployment on request
+                </span>
+              )}
+
+              {project.github && (
                 <Magnetic>
                   <a
                     href={project.github}
@@ -101,15 +119,15 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
                     data-cursor="link"
                     className="flex min-h-12 items-center gap-2 rounded-md bg-bone px-6 text-[15px] font-bold text-ink transition hover:bg-white"
                   >
-                    GitHub ↗
+                    GitHub Repository ↗
                   </a>
                 </Magnetic>
-              </motion.div>
-            )}
+              )}
+            </motion.div>
 
-            {/* impact */}
+            {/* impact & metrics */}
             <motion.section variants={block} className="mt-12">
-              <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">Result / Impact</h3>
+              <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-[#00d2ff]">Key Architectural Metrics</h3>
               <div className="grid grid-cols-2 gap-px overflow-hidden rounded-xl bg-white/10 sm:grid-cols-3 lg:grid-cols-5">
                 {project.metrics.map((m, i) => (
                   <motion.div
@@ -130,7 +148,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
 
             <div className="mt-12 grid gap-10 lg:grid-cols-[3fr_2fr]">
               <motion.section variants={block}>
-                <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">My Contribution</h3>
+                <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-[#00d2ff]">Engineering & Architecture</h3>
                 <ul className="space-y-4">
                   {project.build.map((b) => (
                     <li key={b} className="flex gap-3 text-[15px] leading-relaxed text-bone/85">
@@ -142,21 +160,21 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
               </motion.section>
               <div className="space-y-10">
                 <motion.section variants={block}>
-                  <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">Tech Stack</h3>
+                  <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-[#00d2ff]">Technology Stack</h3>
                   <div className="flex flex-wrap gap-2">
                     {project.stack.map((t) => (
-                      <span key={t} className="glass rounded-full px-3 py-1.5 text-sm font-medium text-bone">
+                      <span key={t} className="glass rounded-full px-3 py-1.5 text-sm font-medium text-bone border border-[#00d2ff]/20">
                         {t}
                       </span>
                     ))}
                   </div>
                 </motion.section>
                 <motion.section variants={block}>
-                  <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-crimson-2">Key Features</h3>
+                  <h3 className="mb-4 text-[11px] font-bold uppercase tracking-[0.3em] text-[#00d2ff]">Core Features</h3>
                   <ul className="space-y-2.5">
                     {project.features.map((f) => (
                       <li key={f} className="flex items-start gap-3 text-sm text-bone/85">
-                        <span className="text-crimson-2">✓</span>
+                        <span className="text-[#00d2ff]">✓</span>
                         {f}
                       </li>
                     ))}
@@ -167,7 +185,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
 
             {/* more like this */}
             <motion.section variants={block} className="mt-14 border-t border-white/10 pt-8">
-              <h3 className="mb-4 font-sans text-lg font-semibold text-bone">More Originals</h3>
+              <h3 className="mb-4 font-sans text-lg font-semibold text-bone">More Featured Originals</h3>
               <div className="grid gap-4 sm:grid-cols-2">
                 {more.map((p) => (
                   <button
@@ -175,13 +193,13 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
                     type="button"
                     data-cursor="view"
                     onClick={() => onSwitch(p)}
-                    className="group relative aspect-video overflow-hidden rounded-xl text-left ring-1 ring-white/10 transition hover:ring-white/30"
+                    className="group relative aspect-video overflow-hidden rounded-xl text-left ring-1 ring-white/10 transition hover:ring-[#00d2ff]"
                   >
                     <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-110">
                       <ProjectArt project={p} />
                     </div>
                     <div className="absolute inset-x-0 bottom-0 p-4">
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-mist">{p.genre}</p>
+                      <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-[#38bdf8]">{p.genre}</p>
                       <p className="font-display text-3xl leading-none tracking-wide text-bone">{p.title}</p>
                     </div>
                   </button>
