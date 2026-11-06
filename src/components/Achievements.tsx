@@ -45,9 +45,9 @@ export default function Achievements() {
                   <Laurel side="r" />
                 </div>
 
-                <h3 className="relative mt-6 font-display text-[2.2rem] leading-[0.92] tracking-wide text-bone">{a.title}</h3>
-                <p className="relative mt-2 font-mono text-xs font-semibold uppercase tracking-[0.18em] text-[#38bdf8]">{a.org}</p>
-                <p className="relative mt-4 text-[13px] leading-relaxed text-bone/75">{a.detail}</p>
+                <h3 className="relative mt-4 sm:mt-6 font-display text-2xl sm:text-[2rem] lg:text-[2.2rem] leading-[0.95] sm:leading-[0.92] tracking-wide text-bone">{a.title}</h3>
+                <p className="relative mt-1.5 sm:mt-2 font-mono text-[11px] sm:text-xs font-semibold uppercase tracking-[0.14em] sm:tracking-[0.18em] text-[#38bdf8]">{a.org}</p>
+                <p className="relative mt-3 sm:mt-4 text-xs sm:text-[13px] leading-relaxed text-bone/75">{a.detail}</p>
 
                 {/* Certificate placeholder badge */}
                 <div className="relative mt-auto pt-6 flex flex-col items-center gap-1">

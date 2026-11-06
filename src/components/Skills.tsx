@@ -48,7 +48,7 @@ export default function Skills() {
                   style={{ background: hue }}
                 />
               )}
-              <span className="relative block font-display text-2xl tracking-wide lg:text-3xl">{c.title}</span>
+              <span className="relative block font-display text-xl sm:text-2xl tracking-wide lg:text-3xl">{c.title}</span>
               <span className="relative hidden text-xs text-smoke lg:block">
                 {c.skills.length} skills · {c.subtitle}
               </span>
@@ -109,7 +109,7 @@ function SkillCard({ skill, hue }: { skill: Skill; hue: string }) {
       >
         {skill.mono}
       </motion.span>
-      <span className="relative mt-4 flex items-center gap-2 text-[15px] font-semibold text-bone">
+      <span className="relative mt-4 flex items-center gap-2 text-sm sm:text-[15px] font-semibold text-bone">
         {skill.name}
         {skill.note && (
           <span className="rounded px-1.5 py-px text-[9px] font-bold uppercase tracking-wider text-ink" style={{ background: hue }}>

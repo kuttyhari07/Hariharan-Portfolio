@@ -86,7 +86,7 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
 
       <motion.h2
         className="relative font-display leading-[0.85] text-bone"
-        style={{ fontSize: 'clamp(3.2rem, 12vw, 10rem)', letterSpacing: spacing, filter: blur, opacity }}
+        style={{ fontSize: 'clamp(2.1rem, 11vw, 10rem)', letterSpacing: spacing, filter: blur, opacity }}
       >
         TO BE CONTINUED…
       </motion.h2>

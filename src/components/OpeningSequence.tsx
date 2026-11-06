@@ -101,7 +101,7 @@ export default function OpeningSequence({ onDone }: { onDone: () => void }) {
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 text-center">
         <motion.h1
           className="font-display leading-[0.82] text-bone drop-shadow-[0_8px_40px_rgba(0,0,0,0.9)]"
-          style={{ fontSize: 'clamp(3.8rem, 16vw, 13rem)' }}
+          style={{ fontSize: 'clamp(2.5rem, 15vw, 13rem)' }}
           initial={{ opacity: 0, scale: 1.3, filter: 'blur(20px)', letterSpacing: '0.5em' }}
           animate={beat >= 2 ? { opacity: 1, scale: 1, filter: 'blur(0px)', letterSpacing: '0.04em', y: beat >= 4 ? '-28vh' : 0 } : {}}
           transition={{ duration: 1.3, ease: EASE }}
@@ -109,7 +109,7 @@ export default function OpeningSequence({ onDone }: { onDone: () => void }) {
           {profile.displayName.toUpperCase()}
         </motion.h1>
         <motion.p
-          className="font-sans text-xs font-bold tracking-[0.7em] text-[#00d2ff] [text-shadow:0_0_20px_rgba(0,210,255,0.6)] sm:text-base"
+          className="font-sans text-[10px] sm:text-xs font-bold tracking-[0.35em] sm:tracking-[0.7em] text-[#00d2ff] [text-shadow:0_0_20px_rgba(0,210,255,0.6)] sm:text-base"
           initial={{ opacity: 0, letterSpacing: '1.4em' }}
           animate={beat >= 3 ? { opacity: 1, letterSpacing: '0.7em', y: beat >= 4 ? '-28vh' : 0 } : {}}
           transition={{ duration: 1.1, ease: EASE }}

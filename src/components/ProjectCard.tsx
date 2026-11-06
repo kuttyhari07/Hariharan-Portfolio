@@ -25,7 +25,7 @@ export default function ProjectCard({ project, index, onOpen }: { project: Proje
             }
           }}
           aria-label={`Open ${project.title}`}
-          className="focus-ring relative aspect-[4/5] overflow-hidden rounded-2xl ring-1 ring-white/10 transition duration-500 group-hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.9),0_0_0_1px_rgba(0,210,255,0.4)] sm:aspect-[16/12] lg:aspect-auto lg:h-[66vh]"
+          className="focus-ring relative min-h-[460px] aspect-[4/5] sm:min-h-0 sm:aspect-[16/12] lg:aspect-auto lg:h-[66vh] overflow-hidden rounded-2xl ring-1 ring-white/10 transition duration-500 group-hover:shadow-[0_40px_80px_-20px_rgba(0,0,0,0.9),0_0_0_1px_rgba(0,210,255,0.4)]"
         >
           <motion.div layoutId={`art-${project.id}`} className="absolute inset-0 overflow-hidden rounded-2xl">
             <div className="absolute inset-0 transition-transform duration-[1.4s] ease-[var(--ease-cine)] group-hover:scale-[1.07]">
@@ -42,20 +42,20 @@ export default function ProjectCard({ project, index, onOpen }: { project: Proje
           </span>
 
           <div className="absolute inset-x-0 bottom-0 p-5 sm:p-7 [transform:translateZ(40px)]">
-            <p className="mb-2 text-[11px] font-semibold uppercase tracking-[0.24em] text-[#38bdf8]">{project.genre}</p>
-            <motion.h3 layoutId={`title-${project.id}`} className="font-display text-[clamp(2.4rem,5vw,4.4rem)] leading-[0.88] tracking-wide text-bone">
+            <p className="mb-2 text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.2em] sm:tracking-[0.24em] text-[#38bdf8]">{project.genre}</p>
+            <motion.h3 layoutId={`title-${project.id}`} className="font-display text-2xl sm:text-[clamp(2.4rem,5vw,4.4rem)] leading-[0.92] sm:leading-[0.88] tracking-wide text-bone">
               {project.title}
             </motion.h3>
-            <p className="mt-3 max-w-md text-sm leading-relaxed text-bone/80 sm:text-[15px]">{project.logline}</p>
-            <div className="mt-4 flex flex-wrap gap-1.5">
+            <p className="mt-2.5 sm:mt-3 max-w-md text-xs sm:text-[15px] leading-relaxed text-bone/80 line-clamp-3 sm:line-clamp-none">{project.logline}</p>
+            <div className="mt-3.5 sm:mt-4 flex flex-wrap gap-1 sm:gap-1.5">
               {project.stack.map((t) => (
-                <span key={t} className="rounded-full bg-black/50 border border-white/10 px-2.5 py-1 text-[11px] font-medium text-bone/90 backdrop-blur">
+                <span key={t} className="rounded-full bg-black/50 border border-white/10 px-2 py-0.5 sm:px-2.5 sm:py-1 text-[10px] sm:text-[11px] font-medium text-bone/90 backdrop-blur">
                   {t}
                 </span>
               ))}
             </div>
-            <div className="mt-5 flex flex-wrap items-center gap-2.5">
-              <span className="flex min-h-11 items-center gap-2 rounded-md bg-bone px-5 text-sm font-bold text-ink transition group-hover:bg-white shadow-[0_0_20px_rgba(0,210,255,0.25)]">
+            <div className="mt-4 sm:mt-5 flex flex-wrap items-center gap-2 sm:gap-2.5">
+              <span className="flex min-h-10 sm:min-h-11 items-center gap-2 rounded-md bg-bone px-4 sm:px-5 text-xs sm:text-sm font-bold text-ink transition group-hover:bg-white shadow-[0_0_20px_rgba(0,210,255,0.25)]">
                 ▶ View Details
               </span>
               {project.demo && project.demo !== '#' && (

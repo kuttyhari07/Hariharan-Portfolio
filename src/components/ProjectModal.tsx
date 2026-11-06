@@ -72,7 +72,7 @@ export default function ProjectModal({ project, onClose, onSwitch }: { project: 
               <motion.h2
                 id={`title-${project.id}-modal`}
                 layoutId={`title-${project.id}`}
-                className="font-display text-[clamp(2.8rem,8vw,5.5rem)] leading-[0.86] tracking-wide text-bone"
+                className="font-display text-2xl sm:text-[clamp(2.8rem,8vw,5.5rem)] leading-[0.92] sm:leading-[0.86] tracking-wide text-bone"
                 transition={{ duration: 0.7, ease: EASE }}
               >
                 {project.title}
