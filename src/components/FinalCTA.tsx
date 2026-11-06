@@ -66,6 +66,7 @@ export default function FinalCTA({ onReplay }: { onReplay: () => void }) {
     { label: 'GitHub Profile', href: profile.links.github, cursor: 'link' },
     { label: 'LinkedIn', href: profile.links.linkedin, cursor: 'link' },
     { label: 'GMHK Studio', href: profile.links.studio, cursor: 'link' },
+    { label: `Call: +91 ${profile.phone}`, href: `tel:${profile.phone}`, cursor: 'link' },
     { label: 'Email Directly', href: `mailto:${profile.email}`, cursor: 'link' },
   ];
 

@@ -48,7 +48,10 @@ export default function ResumeSection({ onView }: { onView: () => void }) {
           </div>
 
           <div className="mt-6 rounded-xl border border-white/10 bg-white/[0.03] p-4 text-xs leading-relaxed text-mist">
-            <span className="font-semibold text-bone">Resume PDF Note:</span> Place your updated PDF at <code className="text-[#00d2ff]">public/assets/Hariharan_G_Resume.pdf</code>. The viewer renders the interactive digital sheet seamlessly in all environments.
+            <span className="font-semibold text-bone">Direct Contact:</span>
+            <p className="mt-1">📞 <a href={`tel:${profile.phone}`} className="text-[#00d2ff] hover:underline">+91 {profile.phone}</a></p>
+            <p className="mt-0.5">📧 <a href={`mailto:${profile.email}`} className="text-[#00d2ff] hover:underline">{profile.email}</a></p>
+            <p className="mt-0.5">📍 Erode, Tamil Nadu · CGPA: 8.09 / 10</p>
           </div>
 
           <dl className="mt-6 grid grid-cols-3 gap-px overflow-hidden rounded-xl bg-white/10 text-center">
@@ -98,25 +101,26 @@ export function ResumeSheet() {
       <div aria-hidden className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#00d2ff]/70 to-transparent" />
       <header className="mb-8 flex flex-wrap items-end justify-between gap-4 border-b border-white/10 pb-6">
         <div>
-          <p className="text-[10px] font-bold tracking-[0.34em] text-[#00d2ff]">FULL STACK DEVELOPER</p>
+          <p className="text-[10px] font-bold tracking-[0.34em] text-[#00d2ff]">SOFTWARE DEVELOPER | JAVA | FULL STACK (MERN)</p>
           <h3 className="mt-1 font-display text-[clamp(2.2rem,4.4vw,3.4rem)] leading-[0.9] tracking-wide text-bone">{profile.fullName}</h3>
-          <p className="text-xs text-mist mt-1">{profile.degree} · {profile.college}</p>
+          <p className="text-xs text-mist mt-1">{profile.degree} · {profile.college} · CGPA: {profile.cgpa}</p>
         </div>
         <div className="text-xs leading-relaxed text-mist sm:text-right">
+          <a href={`tel:${profile.phone}`} className="block hover:text-bone text-bone/90 font-medium">
+            📞 +91 {profile.phone}
+          </a>
           <a href={`mailto:${profile.email}`} className="block hover:text-bone text-[#00d2ff]">
             {profile.email}
           </a>
-          <a href={profile.links.linkedin} target="_blank" rel="noreferrer" className="hover:text-bone">
-            LinkedIn ↗
-          </a>
-          {' · '}
-          <a href={profile.links.github} target="_blank" rel="noreferrer" className="hover:text-bone">
-            GitHub ↗
-          </a>
-          {' · '}
-          <a href={profile.links.studio} target="_blank" rel="noreferrer" className="hover:text-bone">
-            gmhktechstudio.in ↗
-          </a>
+          <div className="mt-1 flex flex-wrap gap-2 sm:justify-end">
+            <a href={profile.links.linkedin} target="_blank" rel="noreferrer" className="hover:text-bone text-[#38bdf8]">
+              LinkedIn ↗
+            </a>
+            <span>·</span>
+            <a href={profile.links.github} target="_blank" rel="noreferrer" className="hover:text-bone text-[#38bdf8]">
+              GitHub ↗
+            </a>
+          </div>
         </div>
       </header>
 
@@ -203,9 +207,19 @@ export function ResumeSheet() {
             ))}
           </ul>
 
+          <H>Strengths & Languages</H>
+          <p className="text-xs leading-relaxed text-mist">
+            <span className="font-semibold text-bone">Strengths: </span>
+            Quick Learner, Problem Solving, Team Collaboration, Communication Skills, Adaptability
+          </p>
+          <p className="mt-1 text-xs leading-relaxed text-mist">
+            <span className="font-semibold text-bone">Languages: </span>
+            Tamil, English
+          </p>
+
           <H>Career Focus</H>
           <p className="text-xs leading-relaxed text-mist">
-            Full Stack Developer | Software Engineer · Web Application Architecture · Distributed Systems · Problem Solving.
+            Seeking Software Developer, Java Developer, and Full Stack Developer internships and graduate software engineering roles.
           </p>
         </div>
       </div>

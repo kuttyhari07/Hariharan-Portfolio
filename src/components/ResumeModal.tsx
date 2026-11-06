@@ -32,6 +32,14 @@ export default function ResumeModal({ onClose }: { onClose: () => void }) {
         <div className="flex items-center gap-2">
           <a
             href={profile.resumePdf}
+            target="_blank"
+            rel="noreferrer"
+            className="hidden sm:inline-flex rounded-md border border-[#00d2ff]/30 bg-white/5 px-3.5 py-2 text-xs font-semibold text-bone transition hover:bg-white/15 hover:text-[#00d2ff]"
+          >
+            ↗ Open Original PDF
+          </a>
+          <a
+            href={profile.resumePdf}
             download="Hariharan_G_Resume.pdf"
             className="rounded-md bg-[#00d2ff] px-4 py-2 text-xs font-bold text-ink shadow-[0_0_20px_rgba(0,210,255,0.4)] transition hover:bg-white"
           >

@@ -13,18 +13,20 @@ export const profile = {
   seriesTag: 'THE DEVELOPER SERIES',
   /** Cinematic studio label shown at the start of the opening sequence */
   originalLabel: 'A HARIHARAN G PRODUCTION',
-  role: 'IT Student | Full Stack Developer',
+  role: 'Software Developer | Java | Full Stack (MERN)',
   degree: 'B.Tech Information Technology',
   college: 'Erode Sengunthar Engineering College',
   academicPeriod: '2024–2028',
-  careerGoal: 'Full Stack Developer | Software Engineer',
-  tagline: ['IT Student', 'Full Stack Developer', 'Software Engineer'],
+  cgpa: '8.09 / 10',
+  phone: '6380911912',
+  careerGoal: 'Software Developer | Java Developer | Full Stack (MERN)',
+  tagline: ['Software Developer', 'Java Developer', 'Full Stack (MERN)'],
   intro:
-    'I build modern web applications and scalable digital solutions using technologies like React, Node.js, Java, and MongoDB. An Information Technology student passionate about full-stack development, problem-solving, and engineering real-world software.',
+    'Information Technology undergraduate with a strong interest in software engineering, Java programming, and full-stack web development. Experienced in building practical applications with the MERN stack and with PHP and MySQL, including database design and website development.',
   location: 'Erode, Tamil Nadu, India',
-  email: 'hariharang.dev@gmail.com', // Configurable contact email placeholder
+  email: 'hariharanit2028@gmail.com',
   links: {
-    linkedin: 'https://linkedin.com/in/hariharan-g', // Configurable LinkedIn profile placeholder
+    linkedin: 'https://linkedin.com/in/hariharan-g-256713326',
     github: 'https://github.com/kuttyhari07',
     studio: 'https://gmhktechstudio.in',
   },
@@ -34,7 +36,7 @@ export const profile = {
     srcSet: '/assets/portrait-420.webp 420w, /assets/portrait-720.webp 720w, /assets/portrait-1100.webp 1100w',
     alt: 'Portrait of Hariharan G',
   },
-  interests: ['Full-Stack Architecture', 'SaaS Platforms', 'System Design', 'Cloud Integration', 'Database Optimization'],
+  interests: ['MERN Stack', 'Java Development', 'Software Engineering', 'Database Design', 'SaaS Platforms'],
 };
 
 export const education = [
@@ -42,8 +44,8 @@ export const education = [
     school: 'Erode Sengunthar Engineering College',
     place: 'Erode, Tamil Nadu',
     degree: 'B.Tech — Information Technology',
-    period: '2024 – 2028',
-    score: 'Class of 2028',
+    period: '2024 – 2028 (Expected)',
+    score: 'CGPA: 8.09 / 10',
   },
 ];
 
@@ -110,6 +112,38 @@ export const projects: Project[] = [
     demo: '#',
     palette: { from: '#02182b', via: '#0052cc', to: '#030b14', accent: '#00d2ff' },
     motif: 'shield',
+  },
+  {
+    id: 'codienych',
+    title: 'CODIENYCH 1.0',
+    year: '2025',
+    genre: 'National Hackathon Platform • Full-Stack • Fintech',
+    logline: 'The official responsive web platform for CODIENYCH 1.0, a 24-hour national hackathon at Erode Sengunthar Engineering College with dynamic team registration and UPI QR workflows.',
+    stack: ['React', 'JavaScript', 'HTML5', 'CSS3', 'Node.js', 'UPI QR'],
+    build: [
+      'Designed and developed the official responsive website (codienych.in) for 24-hour national hackathon participants and administrators.',
+      'Implemented online team registration with dynamic team-size selection and participant validation forms.',
+      'Built ID document and photo upload pipeline alongside a UPI QR-based registration payment verification workflow.',
+      'Developed administrator dashboard functionality for registration tracking, attendee management, and payment verification.',
+    ],
+    features: [
+      'Official national hackathon platform (codienych.in)',
+      'Dynamic team registration with team-size selection',
+      'ID document & attendee photo upload integration',
+      'UPI QR-based registration payment workflow',
+      'Administrator dashboard for participant and payment verification',
+    ],
+    metrics: [
+      { value: '24-Hr', label: 'National Hackathon' },
+      { value: 'UPI QR', label: 'Payment Flow' },
+      { value: 'Teams', label: 'Multi-Size Signup' },
+      { value: 'Admin', label: 'Verification Panel' },
+      { value: 'Live', label: 'codienych.in' },
+    ],
+    github: 'https://github.com/kuttyhari07',
+    demo: 'https://codienych.in',
+    palette: { from: '#0f172a', via: '#0284c7', to: '#020617', accent: '#38bdf8' },
+    motif: 'flow',
   },
   {
     id: 'gmhk-tech-studio',
@@ -271,35 +305,60 @@ export type Achievement = {
 
 export const achievements: Achievement[] = [
   {
-    id: 'nptel-aca',
-    title: 'Elite Certification',
-    org: 'NPTEL · Advanced Computer Architecture',
-    detail: 'Achieved Elite certification score of 70 in Advanced Computer Architecture, demonstrating proficiency in instruction-level parallelism, memory hierarchies, and multi-core systems.',
-    laurel: 'Score: 70 · Elite',
-    score: '70 / 100',
-  },
-  {
-    id: 'hackerrank-java',
-    title: 'Java Certificate',
-    org: 'HackerRank',
-    detail: 'Successfully passed HackerRank assessment verifying strong grasp of Core Java concepts, Object-Oriented Programming, collections, and algorithmic problem-solving.',
-    laurel: 'Verified Certificate',
+    id: 'nptel-entrepreneurship',
+    title: 'Elite Certificate · 100% Score',
+    org: 'NPTEL · IIT Bombay',
+    detail: 'Achieved 100% consolidated score and ranked in the Top 1% Topper among 4,372 registered candidates in Foundations of Entrepreneurship (Assignments: 25/25, Proctored Exam: 75/75).',
+    laurel: 'Top 1% Topper · 100%',
+    score: '100% (Top 1%)',
   },
   {
     id: 'springtest-hackathon',
-    title: '4th Place Finalist',
-    org: 'SpringTest2k26 Hackathon',
-    detail: 'Secured 4th place among competing developer teams by conceptualizing, developing, and presenting an innovative software solution under strict hackathon deadlines.',
+    title: '4th Place Award',
+    org: 'SpringTest2K26 Hackathon',
+    detail: 'Secured 4th place in national-level hackathon for developing and presenting an innovative full-stack software application under strict deadlines.',
     laurel: '4th Place',
+  },
+  {
+    id: 'nptel-aca',
+    title: 'Elite Certificate',
+    org: 'NPTEL · IIT Madras',
+    detail: 'Achieved Elite certification score of 70% in Advanced Computer Architecture, demonstrating proficiency in instruction-level parallelism, memory hierarchies, and multi-core systems.',
+    laurel: 'Score: 70% · Elite',
+    score: '70%',
+  },
+  {
+    id: 'hackerrank-java',
+    title: 'Java Certification',
+    org: 'HackerRank',
+    detail: 'Verified assessment certification testing core Java proficiency, Object-Oriented Programming (OOP), Data Structures, and algorithmic problem-solving.',
+    laurel: 'Verified Skill',
   },
 ];
 
 export type Certification = { issuer: string; name: string; scoreOrDetail?: string; link?: string };
 
 export const certifications: Certification[] = [
-  { issuer: 'NPTEL', name: 'Advanced Computer Architecture (Elite)', scoreOrDetail: 'Elite · Score: 70' },
-  { issuer: 'HackerRank', name: 'Java Programming Skill Certificate', scoreOrDetail: 'Verified Skill' },
-  { issuer: 'SpringTest2k26', name: 'Hackathon Finalist – 4th Place Award', scoreOrDetail: '4th Place' },
+  {
+    issuer: 'IIT Bombay (NPTEL)',
+    name: 'Foundations of Entrepreneurship (Elite · Top 1% Topper)',
+    scoreOrDetail: 'Elite · 100% Score · Top 1% Topper',
+  },
+  {
+    issuer: 'IIT Madras (NPTEL)',
+    name: 'Advanced Computer Architecture (Elite)',
+    scoreOrDetail: 'Elite · Score: 70%',
+  },
+  {
+    issuer: 'HackerRank',
+    name: 'Java Programming Skill Certification',
+    scoreOrDetail: 'Verified Skill',
+  },
+  {
+    issuer: 'SpringTest2K26',
+    name: 'Hackathon Finalist – 4th Place Award',
+    scoreOrDetail: '4th Place Award',
+  },
 ];
 
 export type Skill = { name: string; mono: string; note?: string };
@@ -308,38 +367,41 @@ export type SkillCategory = { id: string; title: string; subtitle: string; skill
 export const skillCategories: SkillCategory[] = [
   {
     id: 'programming',
-    title: 'Programming',
-    subtitle: 'Core programming and computational thinking',
+    title: 'Programming Languages',
+    subtitle: 'Core programming and object-oriented paradigms',
     skills: [
       { name: 'Java', mono: 'Jv', note: 'Certified' },
-      { name: 'C', mono: 'C', note: 'Systems' },
-    ],
-  },
-  {
-    id: 'frontend',
-    title: 'Frontend',
-    subtitle: 'Modern UI & component-driven architecture',
-    skills: [
-      { name: 'React', mono: 'Re', note: 'Modern UI' },
       { name: 'JavaScript', mono: 'Js', note: 'ES6+' },
-      { name: 'HTML', mono: 'Ht', note: 'HTML5' },
-      { name: 'CSS', mono: 'Cs', note: 'Tailwind' },
-    ],
-  },
-  {
-    id: 'backend',
-    title: 'Backend',
-    subtitle: 'Server logic, APIs and business engines',
-    skills: [
-      { name: 'Node.js', mono: 'No', note: 'Runtime' },
-      { name: 'Express.js', mono: 'Ex', note: 'REST APIs' },
+      { name: 'C', mono: 'C', note: 'Systems' },
       { name: 'PHP', mono: 'Ph', note: 'Server-side' },
     ],
   },
   {
+    id: 'frontend',
+    title: 'Frontend Development',
+    subtitle: 'Modern UI & component-driven architecture',
+    skills: [
+      { name: 'React', mono: 'Re', note: 'React.js' },
+      { name: 'JavaScript', mono: 'Js', note: 'ES6+' },
+      { name: 'HTML5', mono: 'H5', note: 'Semantic' },
+      { name: 'CSS3', mono: 'C3', note: 'Tailwind CSS' },
+    ],
+  },
+  {
+    id: 'backend',
+    title: 'Backend & Frameworks',
+    subtitle: 'Server logic, APIs and MERN architecture',
+    skills: [
+      { name: 'Node.js', mono: 'No', note: 'Runtime' },
+      { name: 'Express.js', mono: 'Ex', note: 'REST APIs' },
+      { name: 'PHP', mono: 'Ph', note: 'Server-side' },
+      { name: 'MERN Stack', mono: 'Mern', note: 'Full-Stack' },
+    ],
+  },
+  {
     id: 'database',
-    title: 'Database',
-    subtitle: 'Relational & document database systems',
+    title: 'Databases',
+    subtitle: 'Relational & document database design',
     skills: [
       { name: 'MongoDB', mono: 'Mg', note: 'NoSQL' },
       { name: 'MySQL', mono: 'My', note: 'Relational' },
@@ -347,13 +409,25 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     id: 'tools',
-    title: 'Tools & DevOps',
+    title: 'Tools & Workflows',
     subtitle: 'Developer workflows, collaboration and testing',
     skills: [
       { name: 'Git', mono: 'Gt', note: 'Version Control' },
       { name: 'GitHub', mono: 'Gh', note: 'Open Source' },
       { name: 'VS Code', mono: 'Vs', note: 'IDE' },
-      { name: 'Postman', mono: 'Pm', note: 'API Testing' },
+      { name: 'XAMPP', mono: 'Xp', note: 'Local Server' },
+      { name: 'Maven', mono: 'Mv', note: 'Build Tool' },
+    ],
+  },
+  {
+    id: 'core',
+    title: 'Core Concepts',
+    subtitle: 'Computer science fundamentals & engineering practices',
+    skills: [
+      { name: 'OOP', mono: 'Oop', note: 'Object-Oriented' },
+      { name: 'DBMS', mono: 'Db', note: 'Database Systems' },
+      { name: 'Data Structures', mono: 'Ds', note: 'Algorithms' },
+      { name: 'Software Dev', mono: 'Sd', note: 'Engineering' },
     ],
   },
 ];
@@ -365,18 +439,27 @@ export const skillCategories: SkillCategory[] = [
 export const skillEvidence: Record<string, string[]> = {
   Java: ['HackerRank Java Certificate', 'NPTEL Computer Architecture', 'OOP & Data Structures'],
   C: ['Systems Basics', 'NPTEL Advanced Computer Architecture', 'Procedural Algorithms'],
-  React: ['EvalTech SaaS', 'GMHK Tech Studio (gmhktechstudio.in)', 'ParkEase Platform'],
-  JavaScript: ['EvalTech MERN', 'GMHK Tech Studio', 'FashionStore OTP & Payment Flow', 'ParkEase'],
-  HTML: ['EvalTech', 'GMHK Tech Studio', 'FashionStore', 'College Events Portal', 'Knowledge Hub'],
+  React: ['EvalTech SaaS', 'CODIENYCH 1.0 (codienych.in)', 'GMHK Tech Studio'],
+  JavaScript: ['EvalTech MERN', 'CODIENYCH 1.0', 'FashionStore OTP & Payment Flow', 'ParkEase'],
+  HTML: ['EvalTech', 'CODIENYCH 1.0', 'GMHK Tech Studio', 'College Events Portal'],
+  HTML5: ['EvalTech SaaS Platform', 'CODIENYCH 1.0 Platform', 'GMHK Tech Studio'],
   CSS: ['GMHK Tech Studio UI', 'Tailwind CSS Layouts', 'Glassmorphism & Responsive Design'],
-  'Node.js': ['EvalTech MERN Platform', 'ParkEase Booking API', 'RESTful Microservices'],
-  'Express.js': ['EvalTech SaaS Endpoints', 'ParkEase Server Logic', 'JWT Authentication & RBAC'],
-  PHP: ['FashionStore E-Commerce', 'College Events Portal', 'Smart Student Knowledge Hub'],
+  CSS3: ['Responsive Web Design', 'Tailwind CSS Layouts', 'Cinematic Glassmorphism UI'],
+  'Node.js': ['EvalTech MERN Platform', 'CODIENYCH 1.0 Backend', 'ParkEase Booking API'],
+  'Express.js': ['EvalTech SaaS Endpoints', 'CODIENYCH 1.0 Endpoints', 'JWT Authentication & RBAC'],
+  PHP: ['College Event Management System', 'FashionStore E-Commerce', 'Smart Student Knowledge Hub'],
+  'MERN Stack': ['EvalTech Online Examination SaaS', 'Full-stack single page applications'],
   MongoDB: ['EvalTech SaaS Platform', 'NoSQL Document Schemas', 'User & Assessment Collections'],
-  MySQL: ['FashionStore Database', 'College Events Portal', 'Smart Student Knowledge Hub'],
+  MySQL: ['College Event Management System', 'FashionStore Database', 'Relational Schemas'],
   Git: ['Version Control across all repositories', 'Commit hygiene & feature branching'],
   GitHub: ['github.com/kuttyhari07', 'Code repositories and open collaboration'],
   'VS Code': ['Primary development workspace for MERN & PHP web applications'],
+  XAMPP: ['Local server environment for PHP & MySQL database execution'],
+  Maven: ['Java project management, dependency builds & testing workflows'],
+  OOP: ['Object-Oriented Programming principles in Java and C'],
+  DBMS: ['Relational MySQL normalization and MongoDB document schemas'],
+  'Data Structures': ['Algorithmic problem-solving on HackerRank & academic coursework'],
+  'Software Dev': ['Full-lifecycle software engineering from design to live deployment'],
   Postman: ['API route verification for EvalTech and Node.js backend services'],
 };
 
