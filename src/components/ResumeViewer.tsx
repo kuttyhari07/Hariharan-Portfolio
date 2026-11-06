@@ -38,7 +38,7 @@ export default function ResumeSection({ onView }: { onView: () => void }) {
             <Magnetic className="w-full">
               <a
                 href={profile.resumePdf}
-                download="Hariharan_G_Resume.pdf"
+                download="Hariharan_G_Resume_Updated.pdf"
                 data-cursor="link"
                 className="glass flex min-h-12 w-full items-center justify-center gap-2 rounded-md px-6 text-[15px] font-semibold text-bone transition hover:bg-white/15 border border-[#00d2ff]/30"
               >

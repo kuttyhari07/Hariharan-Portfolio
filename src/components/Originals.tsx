@@ -23,7 +23,7 @@ function Intro() {
       </p>
       <RevealText as="h2" text="ORIGINALS" className="font-display text-[clamp(3.5rem,9vw,8rem)] leading-[0.85] text-bone" />
       <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-mist">
-        Six featured productions — SaaS platforms, agency solutions, e-commerce architectures, and campus innovations. Click any card for the detailed breakdown.
+        {projects.length} featured productions — SaaS platforms, national hackathons, agency solutions, and campus innovations. Click any card for the detailed breakdown.
       </p>
       <p className="mt-6 hidden text-xs font-mono tracking-[0.24em] text-[#38bdf8] lg:block">SCROLL TO EXPLORE →</p>
     </div>

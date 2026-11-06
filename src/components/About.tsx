@@ -49,15 +49,15 @@ export default function About() {
 
         <div>
           <motion.p
-            className="font-serif text-[clamp(1.5rem,3vw,2.4rem)] italic leading-[1.2] text-bone"
+            className="font-serif text-[clamp(1.15rem,2.2vw,1.65rem)] italic leading-[1.4] text-bone"
             initial={{ opacity: 0, y: 24, filter: 'blur(8px)' }}
             whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: EASE }}
           >
-            &ldquo;I am an Information Technology student passionate about full-stack development, problem-solving, software engineering, and building real-world applications.&rdquo;
+            &ldquo;{profile.intro}&rdquo;
           </motion.p>
-          <p className="mt-4 text-sm font-semibold text-[#00d2ff]">— {profile.fullName}</p>
+          <p className="mt-4 text-sm font-semibold text-[#00d2ff]">— {profile.fullName} · {profile.role}</p>
 
           <motion.dl
             className="mt-10 grid gap-px overflow-hidden rounded-xl bg-white/10 sm:grid-cols-2"

@@ -45,8 +45,8 @@ export default function Hero({ onPlay, onResume }: { onPlay: () => void; onResum
 
   const floating = [
     { text: 'B.Tech IT (2024–2028)', sub: 'Erode Sengunthar Eng. College', pos: 'left-[2%] top-[30%]', depth: 1 },
-    { text: `${achievements[2].title}`, sub: achievements[2].org, pos: 'right-[0%] top-[18%]', depth: -1 },
-    { text: 'React · Node.js · Java · Mongo', sub: 'Primary Stack', pos: 'right-[4%] bottom-[24%]', depth: 0.6 },
+    { text: `${achievements[0].laurel}`, sub: achievements[0].org, pos: 'right-[0%] top-[18%]', depth: -1 },
+    { text: 'React.js · Node.js · Java · MongoDB', sub: 'MERN Stack & Core Java', pos: 'right-[4%] bottom-[24%]', depth: 0.6 },
   ];
 
   return (

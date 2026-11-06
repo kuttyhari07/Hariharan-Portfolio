@@ -40,7 +40,7 @@ export default function ResumeModal({ onClose }: { onClose: () => void }) {
           </a>
           <a
             href={profile.resumePdf}
-            download="Hariharan_G_Resume.pdf"
+            download="Hariharan_G_Resume_Updated.pdf"
             className="rounded-md bg-[#00d2ff] px-4 py-2 text-xs font-bold text-ink shadow-[0_0_20px_rgba(0,210,255,0.4)] transition hover:bg-white"
           >
             ⤓ Download PDF
