@@ -1,95 +1,85 @@
-# SUSHMITA — THE SERIES
+# HARIHARAN G — THE DEVELOPER SERIES
 
-A cinematic, streaming-inspired portfolio for **Sushmita Dasari**: Full-Stack Developer and B.Tech AI & ML student.
-Every section is an episode, every project is an Original, and the whole site plays like a series.
+A cinematic, streaming-inspired personal developer portfolio for **Hariharan G**: IT Student, Full Stack Developer, and aspiring Software Engineer at **Erode Sengunthar Engineering College** (2024–2028).
 
-> A personal portfolio with a fictional streaming-platform look. It is not affiliated with Netflix or any other streaming service and uses none of their logos.
+> "Building Digital Experiences, One Project at a Time."
 
-## Run it locally
+---
 
-Requires **Node.js 18+**.
+## 🎬 Cinematic Portfolio Experience
 
+- **Opening Sequence:** Full-screen cinematic titles (`HARIHARAN G — THE DEVELOPER SERIES`) with electric cyan projector flares, portrait reveal, and developer intro.
+- **Profile Selector:** Tailored perspectives for **Recruiter**, **Developer**, and **Explorer** — re-ordering sections dynamically based on viewer intent.
+- **Hero Section:** Parallax portrait with floating stack chips, electric cyan atmosphere, and direct call-to-actions.
+- **Continue Exploring:** Interactive progress tracker showing viewing completion across sections.
+- **About Me:** Academic background, GMHK Tech Studio leadership, and engineering philosophy.
+- **My Journey (5 Seasons):** Academic and project progression from 2024 to 2028.
+- **Featured Originals (6 Projects):**
+  1. **EvalTech** — MERN Online Examination & Assessment SaaS Platform
+  2. **GMHK Tech Studio** — Production Web Development Agency Platform ([gmhktechstudio.in](https://gmhktechstudio.in))
+  3. **FashionStore** — Full-Stack E-Commerce Platform with OTP Auth & UPI Payments
+  4. **College Events Portal** — Campus Event Management & Registration System
+  5. **Smart Student Knowledge Hub** — Student-focused Academic Knowledge Repository
+  6. **ParkEase** — Smart Parking Reservation & Slot Mapping Web Platform
+- **Skill Universe:** Categorized into Programming, Frontend, Backend, Database, and Tools with verified cross-references.
+- **Top Moments & Certifications:**
+  - NPTEL Advanced Computer Architecture — Elite Certification (Score: 70)
+  - HackerRank Java Skill Certificate
+  - SpringTest2k26 Hackathon — 4th Place Finalist
+- **Resume Section:** Interactive full-story sheet preview, overlay viewer, and download action.
+- **Contact Section & Validation Form:** Complete with client-side field validation, subject line, message composition, and direct mail dispatch.
+
+---
+
+## 🛠️ Tech Stack & Architecture
+
+- **Framework:** React 18 + TypeScript + Vite
+- **Styling:** Tailwind CSS v4 (`@theme` with deep navy, black, electric blue, and cyan palette)
+- **Animations:** Framer Motion (page transitions, parallax, tilt, magnetic physics, and sequence choreography)
+- **Smooth Scroll:** Lenis smooth scroll provider
+- **Image Processing:** Sharp script for high-resolution responsive WebP and social OG generation
+- **Accessibility:** Reduced motion detection (`prefers-reduced-motion`) and full keyboard navigation support
+
+---
+
+## 🚀 Getting Started
+
+### 1. Install Dependencies
 ```bash
 npm install
+```
+
+### 2. Development Server
+```bash
 npm run dev
 ```
 
-Open the URL Vite prints (usually http://localhost:5173).
-
-Production build:
-
+### 3. Production Build
 ```bash
 npm run build
+```
+
+### 4. Production Preview
+```bash
 npm run preview
 ```
 
-The static site is written to `dist/` and can be deployed as-is to Vercel, Netlify, GitHub Pages or any static host.
-
-## Updating the content
-
-**All content lives in one file: [`src/data/portfolio.ts`](src/data/portfolio.ts).** It was generated from the resume, and every component reads from it.
-
-| To change… | Edit |
-| --- | --- |
-| Name, intro, email, LinkedIn, GitHub | `profile` |
-| A project, or a new one | `projects` (add an object; it appears in Originals, the overlay, the resume sheet and the counts) |
-| Achievements / certifications | `achievements`, `certifications` |
-| Skills and their "where it's used" notes | `skillCategories`, `skillEvidence` |
-| Seasons and episodes (My Journey) | `seasons` |
-| Top 10 row | `topPicks` |
-| ▶ Play Intro highlight reel | `introSlides` |
-| Profile order (Recruiter / Developer / Creative) | `viewerProfiles` |
-| Opening studio card text | `profile.originalLabel` |
-
-**Resume:** replace `public/assets/Sushmita_Dasari_Resume.pdf`.
-
-**Photo:** replace `pic1.jpeg` (high-res photo) and `pic.png` (background-removed cutout with the same framing), then run:
-
+### 5. Rebuilding Portrait & OG Assets
+To reprocess Hariharan's portrait and social sharing banners:
 ```bash
 npm run images
 ```
 
-This rebuilds the responsive WebP portraits and the social share image in `public/assets/`.
+---
 
-## What's inside
+## 📄 Customization & Configuration
 
-```
-src/
-  data/portfolio.ts        ← single source of truth (from the resume)
-  App.tsx                  ← stages: opening → profile select → home; overlays
-  components/
-    OpeningSequence        ← black → studio card → SUSHMITA → THE SERIES → portrait → ▶ PLAY
-    ProfileSelector        ← "Who's watching?" (changes section order only)
-    Navbar                 ← hide-on-scroll nav, profile switcher, mobile menu
-    Hero                   ← billboard: parallax portrait, particles, light streaks, floating chips
-    PlayIntro              ← ▶ Play Intro: zoom into portrait → highlight reel (pause, ← →, tap zones)
-    ContinueWatching       ← cards with real "watched" progress bars
-    About                  ← The Pilot
-    Seasons / EpisodeCard  ← My Journey as seasons and episodes
-    Originals / ProjectCard← pinned horizontal sequence on desktop, swipe rail on touch
-    ProjectModal           ← full-screen project overlay with a shared-element transition
-    TopPicks               ← Top 10-style row
-    Skills                 ← skill genres; each card shows where the skill appears
-    Achievements           ← award-poster cards + certification rail (links to credentials)
-    ResumeViewer/ResumeModal ← designed resume sheet, PDF viewer, download
-    FinalCTA               ← TO BE CONTINUED… + contact links
-    CustomCursor, fx.tsx   ← cursor states, magnetic buttons, 3D tilt, text reveals, particles
-  hooks/                   ← Lenis smooth scroll + scroll lock, media queries, watch progress
-scripts/build-images.mjs   ← portrait/share-image pipeline (sharp)
-```
+All portfolio content is centralized in:
+`src/data/portfolio.ts`
 
-**Stack:** React 18, TypeScript, Vite 6, Tailwind CSS 4, Framer Motion 11, Lenis.
+- **Resume PDF:** Place your resume file at `public/assets/Hariharan_G_Resume.pdf`.
+- **Contact Details:** Update `email`, `links.linkedin`, and `links.github` in `src/data/portfolio.ts`.
 
-## Accessibility and performance
+---
 
-- `prefers-reduced-motion` is respected: smooth scroll, the custom cursor, tilt, particles, grain and the pinned horizontal scroll turn off, and the opening jumps straight to its final frame.
-- Hover effects only run on devices with a precise pointer. Touch devices get tap interactions and native swipe rails.
-- The custom cursor appears only with a mouse or trackpad.
-- Overlays close with Esc, and the highlight reel supports Space and the ← → keys.
-- Portraits are responsive WebP files (25–90 KB). Overlays are code-split, and particles pause when they're off screen.
-
-## Keyboard shortcuts
-
-- **Opening:** Enter or Esc skips it.
-- **Play Intro:** Space pauses, ← and → change slides, Esc closes.
-- **Project and resume overlays:** Esc closes.
+© 2026 Hariharan G. All rights reserved.
