@@ -28,8 +28,6 @@ html {
   position: relative;
   background: var(--color-ink);
   -webkit-text-size-adjust: 100%;
-  overflow-x: hidden;
-  width: 100%;
 }
 
 html.lenis,
